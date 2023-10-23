@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance</title>
+    <link href="advance.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Bai Advance:</h1>
+<div class="container">
+<form class="submit-form">
+    <h1>Select Card</h1>
+    <div class="card-button-container" >
+        <img onclick="clickImg()" class="card-button card-button-default" id="card-button-default" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"/>
+        <img onclick="clickImgError()" class="card-button card-button-uncheck" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"/>
+        <img onclick="clickImgError()" class="card-button card-button-uncheck" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"/>
+        <img onclick="clickImgError()" class="card-button card-button-uncheck" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"/>
+        <img onclick="clickImgError()" class="card-button card-button-uncheck" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"/>
+    </div>
+    <div class="card-message"></div>
+    <label>Card Number</label>
+    <input type="text" class="input-card-number" id="input-card-number" placeholder="Input your card number"/>
+    <div class="card-number-message"></div>
+    <label>Expiry Date</label>
+    <input type="text" class="input-date" id="input-date" placeholder="MM/YY"/>
+    <div class="date-message"></div>
+    <label>CVC/CVV</label>
+    <input type="password" class="input-CVC" id="input-CVC" placeholder="***"/>
+    <div class="password-message"></div>
+    <button type="submit" class="submit-btn" onclick="addInfo()">Save</button>
+</form>
+</div>
+<table id="info-table" border="1">
+    <tr>
+        <td>Card Img</td>
+        <td>Card Number</td>
+        <td>Expiry Date</td>
+        <td>CVC</td>
+        <td>Action</td>
+    </tr>
+    <tbody id="info-show"></tbody>
+</table>
+<script src="advance.js"></script>
+</body>
+</html>
