@@ -25,9 +25,9 @@ function displayInfo(){
         html+=`
         <tr>
             <td><img src="${currentInfo[i].img}" alt="card-pic" class="picOfCard"/></td>
-            <td id="cardNumber${i}">${currentInfo[i].cardNumber}</td>
+            <td id="cardNumber${i}">${currentInfo[i].cardNumber.slice(0, 7)}*******${currentInfo[i].cardNumber[14]}${currentInfo[i].cardNumber[15]}</td>
             <td>${currentInfo[i].expiryDate}</td>
-            <td id="CVV${i}">${currentInfo[i].CVC}</td>
+            <td id="CVV${i}">***</td>
             <td>
             <button class="view" id="view${i}" onclick="viewNumber(${i})">View</button>
             <button class="edit" id="edit${i}" onclick="pressEdit(${i})">Edit</button>
@@ -86,20 +86,21 @@ function addInfo(){
 }}
 
 //xử lí button view
+
 function viewNumber(i){
     let getInfo=JSON.parse(localStorage.getItem("listInfo"))
     let cardNumber= getInfo[i].cardNumber
     let CVC= getInfo[i].CVC
     if(document.getElementById(`view${i}`).textContent=="View"){
-    document.getElementById(`view${i}`).textContent="Hidden"
-    let masked=String(cardNumber.slice(0, 7) + "*******" +cardNumber[14]+cardNumber[15]);
-    document.getElementById(`cardNumber${i}`).textContent=masked
-    document.getElementById(`CVV${i}`).textContent="***"
+        document.getElementById(`view${i}`).textContent="Hidden"
+        document.getElementById(`cardNumber${i}`).textContent=cardNumber
+        document.getElementById(`CVV${i}`).textContent=CVC
     }
     else{
         document.getElementById(`view${i}`).textContent="View"
-        document.getElementById(`cardNumber${i}`).textContent=cardNumber
-        document.getElementById(`CVV${i}`).textContent=CVC
+        let masked=String(cardNumber.slice(0, 7) + "*******" +cardNumber[14]+cardNumber[15]);
+        document.getElementById(`cardNumber${i}`).textContent=masked
+        document.getElementById(`CVV${i}`).textContent="***"
     }
 }
 
